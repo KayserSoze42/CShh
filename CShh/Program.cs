@@ -1,4 +1,5 @@
 ﻿using System;
+using static CShh.Sortd; // oh boii.. hodl on
 
 namespace CShh
 { // aaah newline {'s
@@ -22,13 +23,36 @@ namespace CShh
         static void Main(string[] args)
         { // everything reminds me of herr.lang.StackOverflow
 
+            /*
             for (int i = 1; i <= 100; i++)
             {
 
                 Console.WriteLine($"For number: {i}, result: {GetFizzier(i)}"); // learn.microsoft.NET hah
 
             }
+            */
 
+            int[] numbers = { 23, 8, 15, 42, 4, 16 }; // what do they mean..
+
+            /*
+
+            Console.Write("Numbers: ");
+            Sortd.PrintFArray(numbers);
+
+            Sortd.BubbleSort(numbers);
+
+            Console.Write("Bubbled numbers: ");
+            Sortd.PrintFArray(numbers);
+
+            */
+
+            Console.Write("Numbers: ");
+            Sortd.PrintFArray(numbers);
+
+            Sortd.QuickSort(numbers, 0, numbers.Length - 1);
+
+            Console.Write("Quickd numbers: ");
+            Sortd.PrintFArray(numbers);
         }
 
     }
