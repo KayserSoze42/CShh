@@ -1,5 +1,6 @@
 ﻿using System;
-using static CShh.Sortd; // oh boii.. hodl on
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CShh
 { // aaah newline {'s
@@ -46,6 +47,8 @@ namespace CShh
 
             */
 
+            /*
+
             Console.Write("Numbers: ");
             Sortd.PrintFArray(numbers);
 
@@ -53,8 +56,147 @@ namespace CShh
 
             Console.Write("Quickd numbers: ");
             Sortd.PrintFArray(numbers);
+
+            */
+
+            Console.Write("Numbers: ");
+            Sortd.PrintFArray(numbers);
+
+            PSortd.Sort(numbers);
+
+            Console.Write("PSortd numbers: ");
+            Sortd.PrintFArray(numbers); // i mean.. how different of a jump it is than the non-lsp -> lsp jump
+                                        // compared to non-copilot -> copilot jump
+                                        // tbh and tbf, lsp is still magik in a way to me lol
         }
 
+    }
+
+    class Sortd
+    {
+        public static void PrintFArray(int[] arr)
+        {
+            Console.Write("{ ");
+            foreach (int num in arr)
+            {
+                Console.Write(num + " "); // and this was mostly tabbed in VS lmao, Rapid Application Development mos def rn
+            }
+            Console.Write("}\n");
+        }
+
+        public static void BubbleSort(int[] arr)
+        {
+            int n = arr.Length;
+            bool swapped;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                swapped = false;
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        swapped = true;
+                    }
+                }
+
+                if (!swapped)
+                { break; } // opt time
+            }
+        }
+
+        public static void QuickSort(int[] arr, int low, int high)
+        {
+            if (low < high)
+            {
+                int pivot2d = Partition(arr, low, high);
+
+                QuickSort(arr, low, pivot2d - 1);
+                QuickSort(arr, pivot2d + 1, high);
+            }
+        }
+
+        private static int Partition(int[] arr, int low, int high)
+        {
+            int pivot3d = arr[high]; // all right el
+
+            int i = low - 1;
+
+            for (int j = low; j < high; j++)
+            {
+                if (arr[j] <= pivot3d)
+                {
+                    i++; // post inc by gorillaz
+                    // and swap arri and arrj via temp
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+
+                    // or the good ol'
+                    //arr[i] = arr[i] ^ arr[j];
+                    //arr[j] = arr[i] ^ arr[j];
+                    //arr[i] = arr[i] ^ arr[j];
+                    // which produced { 4 8 15 16 0 42  } lmao
+                }
+            }
+
+            int swapTemp = arr[i + 1];
+            arr[i + 1] = arr[high];
+            arr[high] = swapTemp;
+
+            return i + 1;
+        }
+    }
+
+    class PSortd
+    {
+        public static void Sort(int[] arr)
+        {
+            int n = arr.Length;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    // what is even
+                    Parallel.For(0, n / 2, j =>
+                    {
+                        if (arr[2 * j] > arr[2 * j + 1])
+                        {
+                            Swap(arr, 2 * j, 2 * j + 1);
+                        }
+                    });
+
+                }
+                else
+                {
+                    // what is odd
+                    Parallel.For(0, (n - 1) / 2, j =>
+                    {
+                        if (arr[2 * j + 1] > arr[2 * j + 2])
+                        {
+                            Swap(arr, 2 * j + 1, 2 * j + 2);
+
+                        }
+                    });
+                }
+            }
+        }
+
+        private static void Swap(int[] arr, int i, int j) // man... for such things.. where you already define the implementation above
+                                                          //          and just move down to write the definition.. and VS is like - `oh yea, arr, i and j of the Swap function
+                                                          //                                                                i know them
+                                                          //                                                                                 my best friends`
+                                                          //                                                                        lmao
+        {
+            int temp = arr[i];
+            arr[i]= arr[j]; 
+            arr[j]= temp; // this too hehe
+        }
+    
     }
 
     /*
