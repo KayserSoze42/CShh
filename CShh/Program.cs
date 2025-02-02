@@ -2,6 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using static CShh.MTStuff;
+using static CShh.Binz<int>;
+using System.Net.WebSockets; // this cannot be the way..
 
 namespace CShh
 { // aaah newline {'s
@@ -72,6 +74,55 @@ namespace CShh
 
             MTStuff mTStuff = new MTStuff();
             await mTStuff.RunSomethingIG();
+
+            // bin and tl;dll
+            Binz<int> binz = new Binz<int>();
+            binz.Insert(6);
+            binz.Insert(9);
+            binz.Insert(420);
+            binz.Insert(421); // brother COBOLs (jkjkjk cmon...)
+
+           /*
+           var funny = binz.InDisOrderTraversal() // ladies and gentlemen, with great pleasure i introduce myself to... drumroll plz..
+                .Where(x => x == 6 || x == 9) // LINQ!!!!!! LMAO!!!!
+                .ToArray();
+
+            Console.Write("funny: ");
+            Sortd.PrintFArray(funny);
+
+            Console.Write("\nnot funny: ");
+            Sortd.PrintFArray(binz.PostDisOrderTraversal()
+                .Where(x => x != 6 && x != 9)
+                .ToArray());
+
+            Console.Write("\navrg: ");
+            Console.WriteLine(funny
+                .Average());
+
+            Console.Write("\nnot funny avrg: ");
+            Console.Write(binz.PostDisOrderTraversal()
+                .Where(x => x != 6 && x != 9)
+                .Average());
+
+            Console.Write("\npre-ordered: ");
+            Sortd.PrintFArray(binz.PreDisOrderTraversal()
+                .Where(x => x % 70 == 0)
+                .ToArray());
+
+            */
+
+            Sortd.PrintFArray(binz.PreDisOrderTraversal()
+                .ToArray());
+            Console.WriteLine();
+
+            Sortd.PrintFArray(binz.InDisOrderTraversal()
+                .ToArray());
+            Console.WriteLine();
+
+            Sortd.PrintFArray(binz.PostDisOrderTraversal()
+                .ToArray());
+            Console.WriteLine();
+
         }
 
     }
