@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using static CShh.MTStuff;
 
 namespace CShh
 { // aaah newline {'s
@@ -21,7 +22,7 @@ namespace CShh
 
         }
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         { // everything reminds me of herr.lang.StackOverflow
 
             /*
@@ -68,6 +69,9 @@ namespace CShh
             Sortd.PrintFArray(numbers); // i mean.. how different of a jump it is than the non-lsp -> lsp jump
                                         // compared to non-copilot -> copilot jump
                                         // tbh and tbf, lsp is still magik in a way to me lol
+
+            MTStuff mTStuff = new MTStuff();
+            await mTStuff.RunSomethingIG();
         }
 
     }
