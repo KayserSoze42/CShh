@@ -109,6 +109,42 @@ namespace CShh
                 .Where(x => x % 70 == 0)
                 .ToArray());
 
+
+           <STARTEND>
+                    i'm tired, boss
+                            and honestly, literally done
+
+
+
+              laging pagod
+
+
+
+            never wanted any of the perks and titles
+
+
+                            never thought would even deserve them, 
+           
+                                                                        how pathetic
+
+            with the documentation i write tomorrow in ms word, i can honestly say, i experienced way more i hoped or planned
+
+            and with everything that transpired prior, don't know why i even bothered trying
+
+            fuck E/A
+
+            fuck e/acc
+
+            fuck x and the formerly tpot gang
+
+            have fun my friends
+
+            wish you luck
+
+            should've just left, a long fucking time ago
+
+            sayonara
+           </ENDEND>
             */
 
             Sortd.PrintFArray(binz.PreDisOrderTraversal()
